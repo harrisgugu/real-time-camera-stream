@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Video Stream</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-bar">
+        <div class="toolbar">
+            <!-- Logo & Brand Name -->
+            <div class="logo-container">
+                <img alt="Logo" src="../static/Assets/Logo.jpeg" class="logo" />
+            </div>
+            <div class = "title-container">
+                <span class="title">Real Time Camera Stream</span>
+            </div>
+            <!-- User Info -->
+            <div class="user-info">
+                <button id="userButton" class="user-button">👤</button>
+                <div id="userMenu" class="user-menu" style="display: none;">
+                    <div class="menu-item" id="username">Username</div>
+                    <div class="menu-item" id="logoutButton">Logout</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Stream Section -->
+    <div class="video-stream">
+        <div id = "video-container">
+            <video id="video" width="640" height="480" autoplay></video>
+        </div>
+        <div id="recordingIndicator" style="display: none;">🔴 Recording...</div>
+        <div>
+            <button id="startButton">Start Capture</button>
+            <button id="stopButton">Stop Capture</button>
+        </div>
+        
+        <div class="slidecontainer">
+            <input type="range" min="1" max="10" value="5" class="slider" id="interval">
+            <p>Frame Per Second: <span id="fps"></span></p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
