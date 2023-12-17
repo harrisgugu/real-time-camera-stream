@@ -56,9 +56,9 @@ def capture_frames():
 # Flask before_request handler to log the headers of incoming requests
 @app.before_request
 def before_request():
-    print(request.headers)
+    #print(request.headers)
     data = request.get_data(as_text=True)
-    print("the whole request: ", data)
+    #print("the whole request: ", data)
 
 # Route to serve the video streaming page
 @app.route('/')
@@ -94,7 +94,6 @@ def handle_start_stream(message):
     capture = True  # Set capture flag to True to start frame capturing
     # Start a new thread for capturing frames
     threading.Thread(target=capture_frames, daemon=True).start()
-    print("in start stream")
 
 # SocketIO event handler for stopping the stream
 @socketio.on('stop_stream')
